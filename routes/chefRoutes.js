@@ -1,0 +1,20 @@
+const express = require('express')
+const router = express.Router()
+const chef_controller = require('../controllers/chef_controllers')
+const auth = require('../controllers/auth_controllers')
+
+router.use(auth.authenMid,auth.verifyUser,auth.chefValidation)
+router.post('/close',auth.close)
+router.get('/harvest',chef_controller.getharvest)
+router.patch('/harvest/process',chef_controller.harvest)
+router.get('/view-scores',chef_controller.view_scores)
+router.patch('/watering',chef_controller.watering)
+router.patch('/update-scores',chef_controller.update_scores)
+router.patch('/trade/process',chef_controller.trade)
+router.patch('/give',chef_controller.give)
+router.patch('/take',chef_controller.take)
+router.get('/gdp',chef_controller.getGDP)
+router.patch('/gdp',chef_controller.addGDP)
+router.patch('/attackConditions',chef_controller.attackCondition)
+
+module.exports = router
