@@ -8,6 +8,7 @@ const authRoute = require('./routes/authRoutes.js')
 const cpRoute = require('./routes/cpRoutes.js')
 const chefRoute = require('./routes/chefRoutes.js')
 const scoutRoute = require('./routes/scoutRoutes.js')
+const Land = require('./modules/Land_module.js')
 
 // CORS middleware (must be before routes)
 app.use(cors({
@@ -17,6 +18,16 @@ app.use(cors({
 
 app.use(cookieParser());
 app.use(express.json());
+
+app.get('/',async (req,res) => {
+  try{
+  let land = await Land.findOne({land_no : 1}).exec()
+  res.status(200).send(land)
+  }catch(err){
+    console.log(err)
+    return res.status(500).send({"error":err.messsage})
+  }
+})
 
 app.use('/Chef', chefRoute);
 app.use('/CP', cpRoute);
