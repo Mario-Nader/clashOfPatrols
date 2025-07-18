@@ -16,7 +16,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "node app.js"
+    "dev": "nodemon"
   },
   "repository": {
     "type": "git",
