@@ -12,8 +12,9 @@ const Land = require('./modules/Land_module.js')
 
 // CORS middleware (must be before routes)
 app.use(cors({
-    origin: 'http://localhost:5173', // <-- Change to your frontend's URL/port
-    credentials: true
+    origin: (process.env.CLIENT_URL ||'http://localhost:5173'), // <-- Change to your frontend's URL/port
+    credentials: true,
+    sameSite: "None"
 }));
 
 app.use(cookieParser());
