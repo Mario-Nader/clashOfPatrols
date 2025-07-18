@@ -112,7 +112,7 @@ async function buy(req,res){//need to add comment here
               }
         }else if(item == "tot_sol"){
                 land.soldiers = land.soldiers + quantity;
-                pat.tot_sol = pat.tot_sol + 1;
+                pat.tot_sol = pat.tot_sol + quantity;
         }else if(item == "tot_houses"){// may need to change to make the chef controll the adding of houses not the cp
                 if(land.houses < 3){
                   land.houses = land.houses + quantity;
