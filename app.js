@@ -12,7 +12,7 @@ const Land = require('./modules/Land_module.js')
 
 // CORS middleware (must be before routes)
 app.use(cors({
-    origin:"https://clash-of-patrols.vercel.app/", // <-- Change to your frontend's URL/port
+    origin:"https://clash-of-patrols.vercel.app", // <-- Change to your frontend's URL/port
     credentials: true,
 }));
 
